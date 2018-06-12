@@ -1,0 +1,182 @@
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Product",
+        "description": "Футбольные бутсы Joma NUMERO 10 предназначены для игры на искусственном покрытии. Бутсы имеют 24 шипа что позволят максимально распределять нагрузку на стопу футболиста.Бутсы изготовлены из высокопрочных и одновременно легких синтетических материалов. Носок бутс имеет рефленый рисунок для лучшего контроля мяча. ",
+        "name": "Сороконожки NUMERO 10",
+        "image": "http://shop.ffu.ua/img/products/single/1.jpg",
+        "offers": {
+            "@type": "AggregateOffer",
+            "highPrice": "1800",
+            "lowPrice": "2100",
+            "offerCount": "4",
+            "offers": [
+                {
+                    "@type": "Offer",
+                    "availability": "http://schema.org/OutOfStock",
+                    "image" : "http://shop.ffu.ua/img/products/single/1.jpg",
+                    "sku" : "sku_122"
+                    "price": "2100.00",
+                    "priceCurrency": "UAH"
+                },
+                {
+                    "@type": "Offer",
+                    "availability": "http://schema.org/InStock",
+                    "image" : "http://shop.ffu.ua/img/products/single/2.jpg",
+                    "sku" : "sku_125"
+                    "price": "2100.00",
+                    "priceCurrency": "UAH"
+                },
+                {
+                    "@type": "Offer",
+                    "availability": "http://schema.org/InStock",
+                    "sku" : "sku_132"
+                    "price": "1800.00",
+                    "priceCurrency": "UAH"
+                },
+                {
+                    "@type": "Offer",
+                    "availability": "http://schema.org/OutOfStock",
+                    "image" : "http://shop.ffu.ua/img/products/single/3.jpg",
+                    "sku" : "sku_140"
+                    "price": "2000.00",
+                    "priceCurrency": "UAH"
+                }
+            ]
+        }   
+    }
+</script>
+<main id="fsProductSingle" class="uk-section uk-section-small uk-padding-remove-top fs-product-single" data-product-id="">
+    <div class="uk-container">
+        <div class="uk-grid-collapse uk-child-width-1-2@m" uk-grid uk-height-match="target: > div > .uk-card">
+            <div>
+                <div class="uk-card uk-card-body fs-product-gallery">   
+                    <div class="uk-slideshow">
+                                               
+                        <!-- slideshow images start -->
+                        <ul class="uk-slideshow-items">
+                            <li v-for="picture in slideshow.pictures" :style="'background-image:url(\'' + picture.image + '\')'"><img :src="picture.image" alt="" class="uk-invisible"></li>
+                        </ul>
+                        <!-- slideshow images end -->
+                        
+                        <!-- slideshow thumbs start -->
+<!--
+                        <ul class="uk-thumbnav" uk-margin>
+                            <li v-for="picture in slideshow.pictures" :uk-slideshow-item="picture.slideIndex"><a href="#"><img :src="picture.image" :alt="picture.name" :title="picture.name"></a></li>
+                        </ul>
+-->
+                        <!-- slideshow thumbs end -->
+                        
+                        <!-- slideshow thumbs start -->
+                        <div class="fs-product-gallery-nav" uk-slider="finite:true;">
+                            <ul class="uk-child-width-1-4 uk-slider-items">
+                                <li v-for="picture in slideshow.pictures"
+                                    :uk-slideshow-item="picture.slideIndex"><a href="#">
+                                    <img 
+                                        :src="picture.image"
+                                        alt=""></a></li>
+                            </ul>
+                        </div>
+                        <!-- slideshow thumbs end -->
+                        
+                    </div>
+                    <div v-if="discount" 
+                         class="fs-price-discount">{{ discount }}%</div>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-body uk-section-muted">
+                   
+                    <h4 id="fsProductSingleName" class="uk-h2">Сороконожки NUMERO 10</h4> <!-- name -->
+                    <p class="fs-product-sku">
+                        <span v-if="sku">{{ sku }}</span>
+                        <span v-else>Товар з обраними характеристиками вiдсутнiй</span>
+                    </p> <!-- sku -->
+                    
+                    <!-- price start -->
+                    <div class="fs-product-price"
+                        :class="{'fs-price-hot':discount}">
+                        <div class="fs-product-price-text">
+                            <span v-if="price">{{ discountPrice }}<sup>00</sup> грн</span>
+                            <span v-else>Товар вiдсутнiй</span>
+                        </div>
+                        
+                        <quantity-counter 
+                            v-if="price"
+                            :count="quantity"
+                            :max="maxQuantity"
+                            :active="true"
+                            @change="quantityChange">
+                        </quantity-counter>                        
+                    </div>
+                    <!-- price end -->
+                    
+                    <!-- add to cart start -->
+                    <p>
+                        <button 
+                                class="uk-button fs-button fs-add-to-cart"
+                                :class="{'fs-button-danger':discount}" @click="addToCart">Додати у кошик</button>
+                    </p>
+                    <!-- add to cart end -->
+                    
+                    <!-- description start -->
+                    <dl class="uk-description-list">
+                        <dt>Розмір:</dt>
+                        <dd>S, M, L</dd>
+                        <dt>Склад:</dt>
+                        <dd>100% бавовна</dd>
+                        <dt>Тип:</dt>
+                        <dd>Спортивний костюм</dd>
+                    </dl>
+                    <!-- description end -->
+                    
+                    <!-- sizes start -->
+<!--
+                    <div v-if="attributes.size.all"
+                         class="uk-flex uk-flex-middle fs-product-sizes">
+                        <strong class="uk-margin-right">Розмір:</strong>
+                        <ul class="uk-subnav uk-subnav-pill">
+                            <li v-for="size in attributes.size.all" :class="getAttrClass(size, 'size')" :key="size.id">
+                                <a href="" @click.prevent="setAttribute(size, 'size')">{{ size.value }}</a>
+                            </li>
+                        </ul>
+                    </div>
+-->
+                    <!-- sizes end -->
+                    
+                    <!-- colors start -->
+                    <div v-if="attributes.color.all"
+                         class="uk-flex uk-flex-middle">
+                        <strong class="uk-margin-right">Колір:</strong>
+                        <ul class="fs-product-colors">
+                            <li v-for="color in attributes.color.all" @click="setAttribute(color, 'color')" :class="getAttrClass(color, 'color')" :key="color.id" :title="color.name">
+                                <span :style="'background:' + color.value"></span>
+                                <span :style="'background:' + color.value_2"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- colors end -->
+                    
+                </div>
+            </div>
+        </div>
+        <h1 class="uk-h2">Сороконожки NUMERO 10</h1>
+        <ul class="uk-subnav uk-subnav-pill" uk-switcher>
+            <li class="uk-active"><a href="">Опис товару</a></li>
+            <li><a href="">Відгуки (18)</a></li>
+        </ul>
+        <ul class="uk-switcher uk-margin">
+            <li>
+                <p>
+                    Наименование Бутсы Joma NUMERO-10 S 502 PM
+                </p>
+                <p>
+                    Описание модели:Футбольные бутсы Joma Humero 10 предназначены для игры на искусственном покрытии. Бутсы имеют 24 шипа что позволят максимально распределять нагрузку на стопу футболиста.Бутсы изготовлены из высокопрочных и одновременно легких синтетических материалов. Носок бутс имеет рефленый рисунок для лучшего контроля мяча.
+                </p>
+            </li>
+            <li>
+                @@include('product/comments.html')
+            </li>
+        </ul>
+    </div>
+</main>

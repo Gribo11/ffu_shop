@@ -1,0 +1,19 @@
+[class*="fs-pay-icon-"] { background: url('../img/payment-icons.png') }
+
+.fs-pay-icon-cash {
+    width: 42px; height: 64px;
+    min-width: 42px;
+    background-position: -101px -10px;
+}
+
+.fs-pay-icon-cc {
+    width: 71px; height: 65px;
+    min-width: 71px;
+    background-position: -10px -10px;
+}
+
+.fs-pay-icon-liqpay { 
+    width: 82px; height: 17px;
+    min-width: 82px;
+    background-position: -10px -95px;
+}

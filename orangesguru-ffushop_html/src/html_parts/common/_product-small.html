@@ -1,0 +1,26 @@
+<div class="fs-product-card" data-product-id="" itemtype="http://schema.org/Product" itemprop="item" itemscope itemtype="http://schema.org/Product">
+    @@if ( colors ) {
+    <ul class="fs-product-colors">
+        @@for ( i=0; i<colors.length; i++) {
+        <li data-sku="FFU106011_18">
+            <span style="background: `+colors[i][0]+`"></span>
+            <span style="background: `+colors[i][1]+`"></span>
+        </li>
+        }
+    </ul>}
+    <div class="fs-product-card-image" style="background-image:url('img/products/@@image');">
+        <img src="img/products/@@image" itemprop="image" alt="@@name" class="uk-invisible">
+        <a href="/product.html" class="uk-position-cover"></a>
+    </div>
+    <h4 class="uk-card-title uk-margin-remove-bottom">
+        <a href="/product.html" class="uk-link-reset" itemprop="url"><span itemprop="name">@@name</span></a>
+    </h4>
+    <span class="uk-text-muted">FFU106011.17</span>
+    <div class="fs-product-price @@if(oldprice) {fs-price-hot}" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        <div class="fs-product-price-text"><span itemprop="price" content="370">370</span><sup>00</sup><span itemprop="priceCurrency" content="UAH">грн</span></div>
+        @@if(oldprice) {
+        <div class="fs-product-price-text fs-old-price"><span itemprop="price" content="470">@@oldprice</span><sup>00</sup><span itemprop="priceCurrency" content="UAH">грн</span></div>}
+    </div>
+    @@if(oldprice) {<div class="fs-price-discount">-30%</div>}
+    <a href="/product.html" class="fs-button @@if(oldprice) {fs-button-danger}">Переглянути</a>
+</div>

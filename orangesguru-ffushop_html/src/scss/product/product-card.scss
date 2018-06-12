@@ -1,0 +1,106 @@
+/*
+ * Product card
+ */
+$fs-product-card-image-height : 215px !default;
+
+.fs-product-card {
+    
+    @extend .uk-card;
+    @extend .uk-card-default;
+    @extend .uk-card-body;
+    @extend .uk-card-hover;
+    
+    border: 1px solid $global-muted-background;
+    margin-bottom: $button-line-height / 2 !important;
+    padding-top: 2 * $card-body-padding-vertical;
+    
+    
+    /*
+     * Colors
+     */
+    
+    .fs-product-colors {
+        
+        position: absolute;
+        top: $card-body-padding-vertical / 2;
+        right: $card-body-padding-vertical;
+    }
+    
+    
+    
+    /*
+     * Price
+     */
+    
+    .fs-product-price > div {
+
+        @extend .uk-card-title;
+        margin-top: $margin-small-margin; 
+    }
+        
+        
+        
+    /*
+     * Image
+     */
+    
+    .fs-product-card-image {
+        
+        height: $fs-product-card-image-height;
+        position: relative;
+        text-align: center;
+        
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    
+    
+    
+    /*
+     * Discount badge
+     */
+    
+    .fs-price-discount {
+                
+        position: absolute;
+        left: 0;
+        top: $fs-product-card-image-height + 2 * $card-body-padding-vertical;
+        transform: translateY(-100%);
+    }
+    
+    
+    
+    /*
+     * Button
+     */
+    
+    .fs-button {
+        
+        color: $card-default-title-color;
+        transform: translateY(50%);
+        
+        position: absolute;
+        bottom: 0;
+        right: $card-body-padding-vertical;
+        
+        line-height: 46px;
+        border-radius: 23px;
+        
+        &:after {
+            width: 46px;
+            height: 46px;
+        }
+    }
+    
+    &:hover, &:focus {
+            
+        .fs-button {            
+            
+            font-size: $button-font-size;
+            padding-left: $button-padding-horizontal;
+
+            &:after {  margin-left: $button-padding-horizontal; }
+        }
+    }
+}

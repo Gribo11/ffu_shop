@@ -1,0 +1,50 @@
+/*.fly {
+    display: inline-block;
+    margin-right: 10px;
+}
+.fly-leave-active, .fly-enter-active {
+    transition: opacity 250ms ease, transform 500ms ease-in-out;
+}
+.fly-leave-active {
+    position: absolute;
+}
+.fly-enter, .fly-leave-to {
+    opacity: 0;
+    transform: translateX(100%);
+}*/
+
+
+/*
+ * ------ Vailidation highlight --------
+ */
+
+#fsCheckout { min-height: 50vh; }
+
+.fs-checkout-options.fs-hide-danger {
+    
+    .uk-button-danger {
+        
+        transition: color 3s ease-out, background-color 3s ease-out;
+        
+        background-color: $button-default-background;
+        color: $button-default-color;  
+        
+        &:hover, &:focus {
+            
+            background-color: $button-default-hover-background;
+            color: $button-default-hover-color;
+        }
+        
+        &:active, &.uk-active {
+            
+            background-color: $button-default-active-background;
+            color: $button-default-active-color;
+        }
+    }
+    
+    .uk-form-danger {
+        
+        transition: border-color 3s ease-out;
+        border-color: $form-border;
+    }
+}

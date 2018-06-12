@@ -1,0 +1,227 @@
+<div style="height: 0; position: fixed; top: -100px;">
+    @@include('../custom_icons/icons-sprite.svg')
+</div>
+<nav class="uk-navbar-container fs-navbar" uk-navbar>
+    <a href="/" class="uk-navbar-item uk-logo">
+        <img  class="uk-hidden@s" src="img/logo-xs.png" alt="">
+        <span class="fs-logo uk-visible@s"><img src="img/logo.png" alt=""></span>
+    </a>
+    <button class="uk-navbar-item uk-button uk-button-primary fs-search-open uk-visible@s"> <!-- uk-toggle="target: #fsSearch; animation: uk-animation-slide-top-small" -->
+        <svg><use xlink:href="#ffu-icon-search"/></svg>
+    </button>
+    <form id="fsSearch" class="fs-search-form uk-navbar-item" action="" style="display:none;">
+        <input type="seach" class="uk-input uk-form-large" placeholder="Введіть Ваш пошуковий запит..." name="q">
+        <button type="submit" class="uk-button uk-button-large">
+            ПОШУК           
+            <svg><use xlink:href="#ffu-icon-logout"/></svg>
+        </button>
+    </form>
+    <div class="uk-flex-1 uk-hidden@l">
+        <button id="fsMenuToggle" class="uk-button uk-navbar-item uk-float-right"> <!-- uk-toggle="target: #fsMenuCollapse; cls: uk-open; animation: uk-animation-fade" -->
+            <span uk-icon="icon: menu; ratio: 3"></span>
+            меню
+        </button>
+    </div>
+    <ul id="fsMenuCollapse" class="uk-navbar-nav uk-flex-1 uk-visible@l fs-menu-collapse">
+        <li class="uk-hidden@s">
+            <a class="uk-button uk-button-primary fs-search-open">ПОШУК</a><!-- uk-toggle="target: #fsSearch; animation: uk-animation-slide-top-small" -->
+        </li>
+        <li class="uk-visible@m"><a href=""><img src="img/joma-logo-small.png" alt="" class="uk-preserve-width"></a></li>
+
+        <li class="uk-parent"><a href="/category.html">
+        <svg><use xlink:href="#ffu-icon-odezhda"/></svg>
+        ОДЯГ</a>
+            <div class="uk-navbar-dropdown">
+                <ul class="uk-nav uk-navbar-dropdown-nav">
+                    <li><a href="/category.html">
+                    <svg><use xlink:href="#ffu-icon-polo"/></svg>
+                    Поло</a></li>
+                    <li><a href="/category.html">
+                    <svg><use xlink:href="#ffu-icon-reglany"/></svg>
+                    Реглани</a></li>
+                    <li><a href="/category.html">
+                    <svg><use xlink:href="#ffu-icon-sport_kostum"/></svg>
+                    Спортивні костюми</a></li>
+                    <li><a href="/category.html">
+                    <svg><use xlink:href="#ffu-icon-fytbolka"/></svg>
+                    Футболки</a></li>
+                    <li><a href="/category.html">
+                    <svg><use xlink:href="#ffu-icon-shorty"/></svg>
+                    Шорти</a></li>
+                    <li><a href="/category.html">
+                    <svg><use xlink:href="#ffu-icon-socks"/></svg>
+                    Гетри</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="/category.html">
+        <svg><use xlink:href="#ffu-icon-dom"/></svg>
+        ДЛЯ ДОМУ</a></li>
+        <li><a href="/category.html">
+        <svg><use xlink:href="#ffu-icon-souvenir"/></svg>
+        СУВЕНІРИ</a></li>
+        <li class="uk-parent"><a href="/category.html">
+        <svg><use xlink:href="#ffu-icon-accessories"/></svg>
+        АКСЕСУАРИ</a>
+            <div class="uk-navbar-dropdown">
+                <ul class="uk-nav uk-navbar-dropdown-nav">
+                    <li><a href="/category.html">
+                    <svg><use xlink:href="#ffu-icon-golovny_ubory"/></svg>
+                    Головні убори</a></li>
+                    <li><a href="/category.html">
+                    <svg><use xlink:href="#ffu-icon-sharfy"/></svg>
+                    Шарфи</a></li>
+                    <li><a href="/category.html">
+                    <svg><use xlink:href="#ffu-icon-symki_rykzaky"/></svg>
+                    Сумки/рюкзаки</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="/category.html">
+        <svg><use xlink:href="#ffu-icon-forma"/></svg>
+        ФОРМА</a></li>
+        <li><a href="/category.html">
+        <svg><use xlink:href="#ffu-icon-percentage"/></svg>
+        РОЗПРОДАЖ</a></li>
+    </ul>
+    
+    <div id="fsNavbar" class="uk-navbar-item uk-padding-remove">
+        
+        <!-- login / accout buttons start -->
+        <button v-if="! user" class="uk-navbar-item uk-button uk-button-secondary" uk-toggle="target: #fsLoginModal">
+            <svg><use xlink:href="#ffu-icon-avatar"/></svg>
+            <span class="uk-visible@s">Вхід / Реєстрація</span>
+        </button>
+        <a v-if="user" href="/account.html" class="uk-navbar-item uk-button uk-button-primary">
+            <svg><use xlink:href="#ffu-icon-avatar"/></svg>
+            <span class="uk-text-truncate"><span class="uk-visible@s">Вітаємо, </span>{{ user.first_name }}</span>
+        </a>
+        <!-- login / accout buttons end -->
+        
+        <!-- navabar cart start -->
+        <button class="uk-navbar-item uk-button fs-cart-navbar">
+            <svg><use xlink:href="#ffu-icon-shopping-bag"/></svg>
+            <span class="fs-cart-items">{{cartTotal.uniqItems}}</span>
+        </button>
+
+        <div class="fs-cart-navbar-table" uk-dropdown="pos: bottom-right; offset: 0">        
+            <table class="uk-table">
+                <thead>
+                    <tr>
+                        <th>Назва товару</th>
+                        <th>Кількість</th>
+                        <th>Ціна</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-if="products" v-for="(product, i) in products" v-if="product.qty" :key="i">
+                        <td>{{ product.name }} 
+                            <span v-if="product.options.discount" class="uk-badge">
+                                {{ product.options.discount }}%
+                            </span>
+                        </td>
+                        <td>{{ product.qty }}</td>
+                        <td>{{ Math.round(product.discountPrice * product.qty) }}<sup>00</sup> грн</td>
+                    </tr>
+                    <tr v-if="! products">
+                        <td colspan="3" class="uk-text-center">{{ emptyMsg }}</td>
+                    </tr> 
+                    <tr>
+                        <td class="fs-cart-checkout"><a href="/checkout.html" class="uk-button uk-button-primary" @click.prevent="checkCart">Перейти до оформлення</a></td>
+                        <td><strong>{{ this.cartTotal.quantity }}</strong></td>
+                        <td><strong>{{ this.cartTotal.summ }}<sup>00</sup> грн</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- navabar cart end -->
+        
+        <!-- login / register modal start -->
+        <div id="fsLoginModal" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body">        
+                <button class="uk-modal-close-default uk-close uk-icon" type="button">
+                    <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" ratio="1"><line fill="none" stroke="#000" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line><line fill="none" stroke="#000" stroke-width="1.1" x1="13" y1="1" x2="1" y2="13"></line></svg>
+                </button>
+                <transition-group 
+                   name="login-modal" tag="div"
+                   @enter="refresh"
+                   style="position: relative;">
+                                      
+                    <form 
+                          v-if = "modalSide == 'login'"
+                          :key = "1"
+                          @submit.prevent
+                          action="">
+                        <h3 class="uk-modal-title">
+                            Вхід
+                        </h3>
+                        <input 
+                                v-model="fields.email"
+                                :class="{'uk-form-danger': showErrors && ! fieldsValid.email}"
+                                type="email" name="email" class="uk-input" placeholder="Ваш email">
+                        <div class="uk-position-relative uk-margin-small-top">
+                            <input 
+                                    v-model="fields.password"
+                                    :class="{'uk-form-danger': showErrors && ! fieldsValid.password}"
+                                    type="password" name="password" class="uk-input" placeholder="Пароль">
+                            <button class="uk-form-icon uk-form-icon-flip uk-button uk-button-link" style="width: 60px;" type="button"
+                               uk-tooltip="title:Змiнити загублений пароль"
+                               :disabled="!active"
+                               @click.prevent="changePassword()"><small>Змiнити</small></button>
+                        </div>                               
+                        <p class="uk-float-right uk-margin-small-top">
+                            <a uk-tooltip="title:Реєстрація нового покупця"
+                               @click.prevent="changeSide('register')"
+                               href="#" class="uk-button uk-button-link">Реєстрація</a>
+                        </p>
+                        <button :disabled="!active"
+                                @click.prevent="userLogin"
+                                type="submit" class="uk-button uk-button-primary uk-margin-small-top">ОК</button>
+                    </form>
+                    
+                    <form 
+                          v-if = "modalSide == 'register'"
+                          :key = "2"
+                          @submit.prevent
+                          action="">
+                        <h3 class="uk-modal-title">
+                            Реєстрація
+                        </h3>
+                        <input 
+                                v-model="fields.first_name"
+                                :class="{'uk-form-danger': showErrors && ! fieldsValid.first_name}"
+                                type="text" name="first_name" class="uk-input" placeholder="Ваше iм`я">
+                        <input 
+                                v-model="fields.last_name"
+                                :class="{'uk-form-danger': showErrors && ! fieldsValid.last_name}"
+                                type="text" name="last_name" class="uk-input uk-margin-small-top" placeholder="Ваше прiзвище">
+                        <input 
+                                v-model="fields.phone"
+                                :class="{'uk-form-danger': showErrors && ! fieldsValid.phone}"
+                                ref="phone"
+                                type="tel" name="phone" class="uk-input uk-margin-small-top" placeholder="Ваш телефон">
+                        <input 
+                                v-model="fields.email"
+                                :class="{'uk-form-danger': showErrors && ! fieldsValid.email}"
+                                type="email" name="email" class="uk-input uk-margin-small-top" placeholder="Ваш email">
+                        <input
+                                v-model="fields.password"
+                                :class="{'uk-form-danger': showErrors && ! fieldsValid.password}"
+                                type="password" name="password" class="uk-input uk-margin-small-top" placeholder="Пароль">
+                        <p class="uk-align-right uk-margin-small-top">
+                            <a uk-tooltip="title: Для зареєстрованих покупців"
+                               @click.prevent="changeSide('login')"
+                               href="#" class="uk-button uk-button-link">Вхід</a>
+                        </p>
+                        <button :disabled="!active"
+                                @click.prevent="userRegister"
+                                type="submit" class="uk-button uk-button-primary uk-margin-small-top">ОК</button>  
+                    </form>
+                        
+                </transition-group>
+            </div>
+        </div>
+        <!-- login / register modal end -->
+    </div>
+        
+</nav>

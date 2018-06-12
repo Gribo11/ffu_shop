@@ -1,0 +1,37 @@
+.fs-checkout-footer {
+    
+    .fs-footer-text { 
+        
+        font-weight: bold;
+        line-height: $button-line-height;
+        
+        @media ( min-width : $breakpoint-medium ) {            
+            
+            font-size: $base-h4-font-size;
+        }
+    }
+    
+    > div {
+        
+        padding: $padding-small-padding $card-body-padding-horizontal;
+
+        @media ( min-width : $breakpoint-large ) {
+
+            padding: $padding-small-padding $card-body-padding-horizontal-l;
+        }
+        
+        &:not(.fs-checkout-total) {
+            
+            color: $global-emphasis-color;
+            background-color: $global-primary-background;
+        }
+    }
+    
+    .fs-checkout-total {        
+        
+        color: $global-inverse-color;
+        background-color: $navbar-item-color;
+        
+        > span { color: $global-inverse-color; }
+    }
+}

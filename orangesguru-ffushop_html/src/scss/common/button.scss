@@ -1,0 +1,142 @@
+.fs-button {
+    
+    @extend .uk-button;    
+    
+    padding: 0;
+    border-radius: $button-line-height / 2;
+    font-size: 0;
+    
+    transition: font-size 150ms ease,
+                padding 200ms ease-out 70ms;
+    
+    &:after {
+        
+        content: '';
+        background: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2714%27%20height%3D%2714%27%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%3E%3Cline%20y2%3D%2714%27%20x2%3D%277%27%20y1%3D%270%27%20x1%3D%277%27%20stroke-width%3D%272%27%20stroke%3D%27#{rgba($button-default-color, .75)}%27/%3E%3Cline%20y2%3D%277%27%20x2%3D%2714%27%20y1%3D%277%27%20x1%3D%270%27%20stroke-width%3D%272%27%20stroke%3D%27#{rgba($button-default-color, .75)}%27/%3E%3C/svg%3E") center no-repeat;
+        vertical-align: middle;
+        font-size: $button-font-size;
+        line-height: $button-line-height - 10;
+        
+        display: inline-block;
+        height: $button-line-height;
+        width: $button-line-height;        
+        border-radius: 50%;
+        margin: 1px;
+        margin-top: 0;
+        
+        box-sizing: border-box;
+        border: 5px solid $global-primary-background;
+        color: $button-default-color;
+        background-color: #fff;
+    }
+    
+    &:not(.uk-inverse) {
+        
+        color: $button-primary-color;
+        background-color: $button-primary-background;
+        
+        &:after {
+            
+            transition: border 150ms ease-in, line-height 150ms ease-in;
+        }
+        
+        &:hover, &:focus {
+            
+            &:after {
+                
+                line-height: $button-line-height - 2;
+                border-width: 1px;
+            }
+        }
+    }
+    
+    
+    
+    /*
+     * Hover state
+     */
+
+    &:hover, &:focus {
+
+        color: $button-primary-hover-color;
+        font-size: $button-font-size;
+        padding-left: $button-padding-horizontal;
+        
+        &:after {  margin-left: $button-padding-horizontal; }
+    }
+    
+    
+    
+    /*
+     * Inversed button modifier
+     */
+    
+    &.uk-inverse {
+        
+        background-color: #fff;
+        
+        /*
+         * Inversed button hover state
+         */
+
+        &:hover, &:focus {
+
+            color: $button-default-hover-color;
+            
+        }
+    }
+    
+    /*
+     * Danger button modifier
+     */
+    
+    &.fs-button-danger {
+        
+        background-color: $global-danger-background;
+        color: $button-danger-active-color !important;
+        
+        &:after { border: 5px solid $global-danger-background; }
+    }
+}
+
+
+
+/*
+ * Arrow button
+ */
+
+.fs-button-arrow {
+    
+    @extend .uk-button;  
+    
+    border-radius: $button-line-height / 2;
+    background-color: $global-inverse-color;
+    padding-right: 2px;
+    transition: background-color 100ms ease-out;
+
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:after {
+
+        content: '>';
+        text-align: center;
+        color: transparent;
+        background: $navbar-item-color url("data:image/svg+xml;charset=utf8,%3Csvg%20version%3D%271.1%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20x%3D%270%27%20y%3D%270%27%20viewBox%3D%270%200%20238.003%20238.003%27%20width%3D%2720%27%20height%3D%2720%27%3E%3Cpath%20fill%3D%27#{rgba($global-inverse-color,.99)}%27%20d%3D%27M181.776%2C107.719L78.705%2C4.648c-6.198-6.198-16.273-6.198-22.47%2C0s-6.198%2C16.273%2C0%2C22.47%20l91.883%2C91.883l-91.883%2C91.883c-6.198%2C6.198-6.198%2C16.273%2C0%2C22.47s16.273%2C6.198%2C22.47%2C0l103.071-103.039%20c3.146-3.146%2C4.672-7.246%2C4.64-11.283C186.416%2C114.902%2C184.89%2C110.833%2C181.776%2C107.719z%27%3E%3C%2Fpath%3E%3C%2Fsvg%3E") 65%  50% no-repeat;
+
+        display: inline-block;
+        border-radius: 50%;
+        align-self: center;
+        transform: translateY(2px);
+        margin-left: $button-padding-horizontal / 2;
+        width: $button-line-height - 4;
+        height: $button-line-height - 4;            
+    }
+
+    &:hover {
+
+        background-color: darken($global-inverse-color, 5%);
+    }
+}

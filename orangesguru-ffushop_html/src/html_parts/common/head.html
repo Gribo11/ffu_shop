@@ -1,0 +1,19 @@
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/main.css">
+<link rel="icon" href="img/logo-xs.png">
+<meta name="csrf-token" content="UJZEB0ydKX14iKqBLvUt0fJIguEx8N2MkaWYrzrr">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+@@if ( process.env.NODE_ENV == 'development' ) {
+<!-- only for browser livereload -->
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function(){
+     var _lrscript = document.createElement('script');_lrscript.type = 'text/javascript';_lrscript.defer = _lrscript.async = true;_lrscript.src = '//' + ((null||location.host).split(':')[0]) + ':35729/livereload.js?';
+        if ( ~(location.href).indexOf('localhost') ) document.body.appendChild(_lrscript);
+    })
+</script>
+<!-- only for browser livereload -->}
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/native-promise-only/0.8.1/npo.js"></script>-->
+<script src="js/vendors.js"></script>
+<script src="js/main.js"></script>

@@ -1,0 +1,34 @@
+/*
+ * Product quantity counter
+ */
+
+.fs-product-quantity {
+
+    background-color: $global-inverse-color;
+    color: $global-emphasis-color;
+    border: 1px solid $global-primary-background;
+    border-radius: 1em;
+
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 2;
+    
+    transition: opacity 250ms ease-out, border-color 150ms ease;
+
+    > a {
+
+        color: $global-emphasis-color;
+        text-decoration: none;
+
+        padding: 0 .5em;
+    }
+
+    > span { padding: 0 .5em; }
+    
+    // disabled state
+    &.uk-disabled {
+        
+        opacity: .8;
+        border-color: $global-muted-background;
+    }
+}    

@@ -1,0 +1,107 @@
+@mixin hook-logo() {
+    
+    background-color: #21212a;
+}
+
+@mixin hook-button() {
+    
+    font-weight: bold;
+}
+
+
+
+/*
+ * Subnav
+ */
+
+@mixin hook-subnav() {
+    
+    &.uk-subnav-pill {
+        
+        margin-left: 0;
+    
+        > li { 
+            
+            padding-left: 0;
+            margin-left: -1px;
+            
+            &.uk-active,
+            &:active,
+            &:hover,
+            &:focus { z-index: 2; }
+        }
+    }
+}
+
+@mixin hook-subnav-pill-item() {
+    
+    border: 1px solid rgba($global-emphasis-color, .2);
+}
+
+@mixin hook-subnav-pill-item-hover() {
+    
+    border-color: $global-primary-background;
+}
+
+@mixin hook-subnav-item-disabled() {
+    
+    border-color: transparent;
+    background: rgba($global-muted-color, .2);
+}
+
+@mixin hook-subnav-pill-item-active() {
+    
+    border-color: $global-primary-background;
+}
+
+
+
+/*
+ * Notification
+ */
+
+@mixin hook-notification() {
+    
+    > div { 
+        text-align: center;
+        border: 1px solid currentColor
+    };
+}
+
+
+
+/*
+ * Pagination
+ */
+
+@mixin hook-pagination-item() {
+    
+    width: $global-line-height * $global-font-size;
+    text-align: center;
+    font-weight: bold;
+    
+    border: 5px solid $global-primary-background;
+    border-radius: 50%;
+}
+
+@mixin hook-pagination-item-active() {
+    
+    background-color: $global-emphasis-color;
+    border-color: $global-emphasis-color;
+}
+
+
+
+/*
+ * Accordion
+ */
+
+@mixin hook-accordion-title() {
+    
+    &:after {
+        content: '';
+        display: block;
+        background: none;
+        clear: both;
+    }
+}

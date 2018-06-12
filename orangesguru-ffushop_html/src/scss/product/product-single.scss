@@ -1,0 +1,169 @@
+/*
+ * Single product
+ */
+
+.fs-product-single {
+    
+    
+    /*
+     * Product gallery
+     */
+    
+    .fs-product-gallery {
+        
+        border: 1px solid $global-muted-background;
+        
+        .uk-slideshow-items {
+            
+            max-height: calc(100% - 100px);
+            
+            @media ( min-width : $breakpoint-medium ) {
+                
+                max-height: calc(100% - 150px);
+            }
+            
+            > li { 
+                
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+        
+        .uk-thumbnav {
+            
+            margin-top: $global-small-gutter;
+            
+            > li { 
+                
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            img { max-width: 100px; max-height: 100px; }            
+        }
+    }
+    
+    
+    
+    /*
+     * Discount
+     */
+    
+    .fs-price-discount {
+        
+        position: absolute;
+        left: 0;
+        top: $card-body-padding-vertical;
+        
+        @media ( min-width  :$breakpoint-large ) {
+            
+            top: $card-body-padding-vertical-l;
+        }
+    }
+        
+    #fsProductSingleName {
+        
+         @media ( max-width : 374px ) {
+        
+             font-size: $base-h3-font-size;
+             line-height: $base-h3-line-height;
+        }
+    }
+    
+    
+    
+    .fs-product-price {
+        
+        > .fs-product-price-text {
+        
+            color: $base-heading-color;
+            font-size: $base-h2-font-size;
+            line-height: $base-h2-line-height;
+            margin-right: $margin-large-margin;
+            vertical-align: middle;
+        }        
+    }
+    
+    
+    
+    .fs-add-to-cart {
+        
+        color: $global-emphasis-color;
+        font-size: $global-font-size;
+        font-weight: bold;
+        padding-left: $button-padding-horizontal;
+        
+        &:after { margin-left: $button-padding-horizontal; }
+    }
+    
+    /*
+     * Product sizes
+     */
+    
+    .fs-product-sizes {
+        
+        margin: $margin-small-margin 0;
+        
+        > strong { margin-bottom: $margin-small-margin; }
+        
+        .uk-subnav-pill { 
+            
+            margin: 0 0 0 #{-$subnav-margin-horizontal / 2};
+            
+            > * { 
+                
+                padding-left: $subnav-margin-horizontal / 2;
+                margin-bottom: $subnav-margin-horizontal / 2;
+                
+                > * {
+                    
+                    padding: $subnav-pill-item-padding-vertical 0;
+                    min-width: 55px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+        
+    
+    
+    /*
+     * Product colors
+     */
+    
+    .fs-product-colors {
+        
+        > li {
+            
+            cursor: pointer;
+        }
+    }
+    
+    
+    
+    /*
+     * Product description
+     */
+    
+    .uk-description-list {
+        
+        dt { 
+            float: left;
+            width: 120px;
+        }
+        
+        dd { 
+            margin-top: $description-list-term-margin-top;
+            margin-left: 120px;
+        }
+        
+        @media ( min-width : $breakpoint-large ) {
+            
+            dt { width: 180px; }
+
+            dd { margin-left: 180px; }
+        }
+    }
+}

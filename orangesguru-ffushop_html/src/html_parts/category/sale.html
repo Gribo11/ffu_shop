@@ -1,0 +1,145 @@
+<!-- category sort bar start -->
+<div class="uk-clearfix uk-margin-medium-bottom">
+    <div class="uk-float-left uk-margin-small-top">
+        Товарів у категорії: <strong class="uk-margin-small-left">123</strong>
+    </div>
+    <div class="uk-float-right fs-sort-select-wrap">
+        <span class="uk-margin-small-right">Сортувати за</span>
+        <span class="fs-sort-select">
+            <span class="selected">ціна від найменшої до найбільшої</span>
+            <div uk-dropdown="pos:bottom-justify; boundary:.fs-sort-select; boundary-align:true; offset:0">
+                <ul class="uk-nav uk-dropdown-nav">
+                    <li><a href="?price=ASC">ціна від найменшої до найбільшої</a></li>
+                    <li><a href="?price=DESC">ціна від найбільшої до найменшої</a></li>
+                    <li><a href="?name=ASC">назва А - Я</a></li>
+                    <li><a href="?name=DESC">назва Я - А</a></li>
+                </ul>
+            </div>
+        </span>
+    </div>
+</div>
+<!-- category sort bar end -->
+
+<!-- category grid start -->
+<div class="uk-grid-medium uk-child-width-1-2@s uk-child-width-1-3@l" 
+     uk-grid uk-height-match="target: .fs-product-card"
+     itemscope
+     itemtype="http://schema.org/ItemList">
+
+        <!-- product item start -->
+        <div itemprop="itemListElement"
+             itemscope
+             itemtype="http://schema.org/ListItem">
+            <meta itemprop="position" content="1" />
+            @@include('common/_product-small.html', {
+                "image" : "1.png",
+                "index" : 1,
+                "name" : "Гетры Calcio 24",
+                "colors" : [
+                    ["#efd51f", "#efd51f"],
+                    ["#276eba", "#276eba"]
+                ],
+                "oldprice" : 999
+            })
+        </div>
+        <!-- product item end -->
+
+        <!-- product item start -->
+        <div itemprop="itemListElement"
+             itemscope
+             itemtype="http://schema.org/ListItem">
+            <meta itemprop="position" content="2" />
+            @@include('common/_product-small.html', {
+                "image" : "2.jpg",
+                "index" : 2,
+                "name" : "Кроссовки JAKARTA",
+                "colors" : [
+                    ["#d30505", "#000"],
+                    ["#964b00", "#000"],
+                    ["#26334d", "#fff"],
+                    ["#000", "#fff"]
+                ],
+                "oldprice" : 999
+            })
+        </div>
+        <!-- product item end -->
+
+        <!-- product item start -->
+        <div itemprop="itemListElement"
+             itemscope
+             itemtype="http://schema.org/ListItem">
+            <meta itemprop="position" content="3" />
+            @@include('common/_product-small.html', {
+                "image" : "2.jpg",
+                "index" : 2,
+                "name" : "Кроссовки JAKARTA",
+                "colors" : [
+                    ["#d30505", "#000"],
+                    ["#964b00", "#000"],
+                    ["#26334d", "#fff"],
+                    ["#000", "#fff"]
+                ],
+                "oldprice" : 9999
+            })
+        </div>
+        <!-- product item end -->
+
+        <!-- product item start -->
+        <div itemprop="itemListElement"
+             itemscope
+             itemtype="http://schema.org/ListItem">
+            <meta itemprop="position" content="1" />
+            @@include('common/_product-small.html', {
+                "image" : "1.png",
+                "index" : 1,
+                "name" : "Гетры Calcio 24",
+                "colors" : [
+                    ["#efd51f", "#efd51f"],
+                    ["#276eba", "#276eba"]
+                ],
+                "oldprice" : 999
+            })
+        </div>
+        <!-- product item end -->
+
+        <!-- product item start -->
+        <div itemprop="itemListElement"
+             itemscope
+             itemtype="http://schema.org/ListItem">
+            <meta itemprop="position" content="2" />
+            @@include('common/_product-small.html', {
+                "image" : "2.jpg",
+                "index" : 2,
+                "name" : "Кроссовки JAKARTA",
+                "colors" : [
+                    ["#d30505", "#000"],
+                    ["#964b00", "#000"],
+                    ["#26334d", "#fff"],
+                    ["#000", "#fff"]
+                ],
+                "oldprice" : 999
+            })
+        </div>
+        <!-- product item end -->
+
+        <!-- product item start -->
+        <div itemprop="itemListElement"
+             itemscope
+             itemtype="http://schema.org/ListItem">
+            <meta itemprop="position" content="3" />
+            @@include('common/_product-small.html', {
+                "image" : "2.jpg",
+                "index" : 2,
+                "name" : "Кроссовки JAKARTA",
+                "colors" : [
+                    ["#d30505", "#000"],
+                    ["#964b00", "#000"],
+                    ["#26334d", "#fff"],
+                    ["#000", "#fff"]
+                ],
+                "oldprice" : 9999
+            })
+        </div>
+        <!-- product item end -->
+</div>
+<!-- category grid end -->

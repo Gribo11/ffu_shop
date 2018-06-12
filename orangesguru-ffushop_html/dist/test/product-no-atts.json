@@ -1,0 +1,16 @@
+{
+    "FFU1063434": {
+        "sku_id":10,
+        "price":999,
+        "discount":null,
+        "in_stock":1,
+        "sku_image":"img/products/single/1.jpg",
+        "stock_level":99,
+        "color": {
+            "id":1,
+            "name":"\u0416\u0435\u043b\u0442\u044b\u0439",
+            "value":"#efd51f",
+            "value_2":null
+        }
+    }
+}

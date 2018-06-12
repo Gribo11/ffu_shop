@@ -1,0 +1,90 @@
+.fs-chechout-nav {
+    
+    svg {
+        
+        max-width: 35px; 
+        max-height: 35px;
+        height: auto;
+        
+        > * { fill: $global-muted-color; }
+    }
+    
+    > div {
+        
+        line-height: 35px;
+        font-weight: bold;
+        color: $global-muted-color;
+        background-color: $global-muted-background;
+        
+        padding: $global-gutter;
+        
+        transition: background-color 180ms ease, color 180ms ease;
+        
+        &.uk-active {
+            
+            cursor: pointer;
+            color: $global-emphasis-color;
+            background-color: $global-primary-background;
+            
+            svg > * { fill: $global-emphasis-color; }
+        }
+        
+        &.uk-active:last-child {
+            
+            background-color: $global-emphasis-color;
+            color: $global-primary-background;
+            
+            svg > * { fill: $global-primary-background; }
+        }
+        
+        @media ( min-width : $breakpoint-medium ) {
+            
+            font-size: $base-h4-font-size;
+            
+            svg { margin-right: $margin-small-margin; }
+        }
+        
+        @media ( max-width : $breakpoint-medium-max ) {
+            
+            text-align: center;
+            padding: $padding-small-padding; 
+            
+            > span { 
+                
+                display: block;
+                
+                + span { margin-top: 10px;}
+            }
+        }
+    }
+    
+    
+    
+    /*
+     * Cart icon
+     */
+    
+    .fs-cart-checkout {
+        
+        display: inline-block;
+        position: relative;
+        
+        .fs-cart-items { 
+            
+            color: $global-primary-background;
+            background-color: $global-emphasis-color;
+            text-align: center;
+            line-height: 24px;
+            
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: 50%;
+            height: 24px;
+            width: 24px;                    
+            
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+        }
+    }
+}

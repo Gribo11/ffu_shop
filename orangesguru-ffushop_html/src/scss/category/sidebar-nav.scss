@@ -1,0 +1,100 @@
+.fs-sidebar-nav {
+    
+    font-weight: bold;
+    box-shadow: $card-default-box-shadow;
+    
+    /*@media ( min-width : $breakpoint-medium ) {
+        
+        margin-top: 74px;
+    }*/
+    
+    > li { margin: 0 !important; }
+    
+    /*
+     * Title
+     */
+    
+    .uk-accordion-title {
+        
+        position: relative;
+        background-color: $global-background;
+        font-size: $base-h6-font-size;
+        text-transform: uppercase;
+        padding: $card-body-padding-vertical / 2 $card-body-padding-horizontal;
+        
+        > a {
+            
+            color: $global-emphasis-color;
+            text-decoration: none;
+        }
+    }
+    
+    
+    
+    /*
+     * Toggle
+     */
+    
+    .fs-toggle {
+        
+        
+        &:before { 
+            content : '+';
+            line-height: 1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+        }
+        
+        cursor: pointer;
+        
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 50px;
+    }
+    
+    > .uk-open {
+        
+        > .uk-accordion-title {
+            
+            background-color: $global-primary-background;
+            
+            .fs-toggle:before { content: '-'; }
+        }
+    }
+    
+    
+    
+    /*
+     * Content
+     */
+    
+    .uk-accordion-content {
+        
+        margin: 0;
+        background-color: $global-muted-background;
+        padding: $card-body-padding-vertical / 2 $card-body-padding-horizontal;
+        
+        .uk-list {
+            
+            > li {
+                
+                > a { 
+                
+                    color: #545454;
+                    font-size: $base-h6-font-size;
+                    text-transform: uppercase;
+                }
+                
+                &.uk-active > a { 
+                    
+                    text-decoration: underline;
+                    color: $global-primary-background;
+                }
+            }
+        }
+    }
+}

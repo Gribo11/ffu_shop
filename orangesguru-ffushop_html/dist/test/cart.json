@@ -1,0 +1,61 @@
+{ 
+    "b1f60e5bea1a973b358471b691cd1030": { 
+    "rowId": "b1f60e5bea1a973b358471b691cd1030",
+    "id": 1,
+    "name": "Сороконожки NUMERO 10",
+    "qty": "2",
+    "price": 2100,
+    "options": {
+            "url" : "/product.html",
+            "product_id": 5,
+            "discount": -25,
+            "sku": "sku_122",
+            "size": "XS",
+            "color_name": "Синий",
+            "color_value": "#3f5ce8",
+            "color_value_2": null,
+            "image": "/img/products/single/2.jpg"
+        }, 
+        "tax": 0,
+        "subtotal": 4200
+    },
+    "eb38a4b476eb7bce255792e9f41df387": {
+        "rowId": "eb38a4b476eb7bce255792e9f41df387",
+        "id": 3,
+        "name": "Приклад назви доданого до корзини товару у три рядки",
+        "qty": "1",
+        "price": 107,
+        "options": {
+            "product_id": 1,
+            "discount": null,
+            "sku": "test",
+            "size": null,
+            "color_name": null,
+            "color_value": null,
+            "color_value_2": null,
+            "image": null
+        },
+        "tax": 0,
+        "subtotal": 107
+    },
+    "1b38a4b476efg37e255792e9f41df387":{
+        "rowId" : "eb38a4b476eb7bce2557dfs9f41df347",
+        "id":10,
+        "name" : "Персоналізована футболка Збірної України",
+        "qty": "1",
+        "price":1600,        
+        "options" : {
+            "product_id": 10,
+            "sku" : "custom",
+            "size": "XXXL",
+            "color_name": "желтый",
+            "color_value": "#efd51f",
+            "color_value_2": null,
+            "image":"/img/products/tshirt/petrova.jpg",
+            "surname" : "petrova",
+            "number" : "99"
+        },
+        "tax": 0,
+        "subtotal": 1600
+    }
+}

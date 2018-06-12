@@ -1,0 +1,43 @@
+.uk-button-link {
+
+    color: $global-emphasis-color !important;
+    font-size: 1rem;
+
+    .uk-icon {
+        
+        color: $global-primary-background;
+        transform: translateY(-3px);
+    }
+}
+
+.uk-form-horizontal {
+    
+    .uk-checkbox {
+
+        border-color: $global-primary-background;
+        
+        &:indeterminate { background-color: #fff; }
+    }
+    
+    .uk-form-label {
+
+        color: $global-muted-color;
+
+        @media ( min-width : $breakpoint-large ) {
+
+            font-size: 1rem;
+        }
+    }
+
+    .uk-form-controls {
+
+        color: $global-emphasis-color;
+
+        > label, span {
+
+            min-height: $form-height;
+            line-height: $form-height;
+            margin-right: 10px;
+        }
+    }
+}

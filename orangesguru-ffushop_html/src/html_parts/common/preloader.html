@@ -1,0 +1,37 @@
+<div id="fsPreloader" class="uk-flex uk-flex-center uk-flex-middle">
+    <div class="fs-js uk-text-center">
+        <img src="img/loading.gif" alt="">
+    </div>
+    <div class="fs-nojs-ua">
+        У вашому браузері відключена підтримка JavaScript <br>
+        Необхідно включити її для повноцінної роботи сайту
+    </div>
+    <div class="fs-nojs-en">
+        The JavaScript is disabled in your browser<br>
+        It is required for the full work of the site
+    </div>
+</div>
+<script>
+    // remove no js warning
+    document.documentElement.classList.remove('no-js');
+    
+    function removePreloader() {
+        var pl = document.getElementById('fsPreloader');
+        if ( pl ) {
+            pl.style.opacity = 0;
+            setTimeout(function(){
+                if ( pl.parentNode) pl.parentNode.removeChild(pl);
+            }, 500)
+        }
+    }
+    
+    document.addEventListener('DOMContentLoaded', function(){
+        // remove preloader 
+        /*Vue.mixin({
+            mounted : removePreloader
+        });*/
+        $(window).on('fs.user.loaded', removePreloader);
+        // if something went wrong
+        setTimeout(removePreloader, 3000);
+    });
+</script>

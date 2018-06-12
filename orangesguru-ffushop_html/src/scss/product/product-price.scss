@@ -1,0 +1,58 @@
+/*
+ * Price
+ */
+
+.fs-product-price {
+    
+    sup { 
+        
+        font-size: .65em;
+        margin-right: .33em;
+    }
+    
+    > .fs-product-price-text {
+        
+        display: inline-block;
+        font-weight: bold;               
+        line-height: $global-line-height;
+        position: relative;
+        z-index: 2;
+
+        &:after {
+
+            content: '';            
+            background-color: $global-primary-background;
+            opacity: .25;
+
+            display: block;
+            width: 90%;
+            height: 0.5 * $card-title-line-height * $card-title-font-size;
+
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+        }
+      
+        &.fs-old-price {
+            
+            margin-left: .25em;
+            font-size: .95em;
+            text-decoration: line-through;
+            vertical-align: bottom;
+            
+            &:after {
+                
+                height: 0.33 * $card-title-line-height * $card-title-font-size;
+            }
+        }
+    }
+    
+    
+    // Hot price modifier
+    
+    &.fs-price-hot > .fs-product-price-text:after {
+                
+        background-color: $global-danger-background;
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "first_name" : "Abdurahman ibn Hattab",
+    "last_name" : "Surname is very very looooong",
+    "email" : "mail@example.com",
+    "phone" : "+38(000)111-22-33",
+    "birthday" : null,
+    "sex" : "",
+    "valid" : true,
+    "deliveryProviders" : {
+        "courier" : {
+            "options" : {
+                "address_str" : null,
+                "address_bld" : null,
+                "address_apt" : null
+            },
+            "valid" : false
+        },
+        "new-post" : {
+            "options" : {
+                "city" : "Киев",
+                "department" : "Поштомат \"ПриватБанк\" №1137",
+                "details" : ["Україна, м. Київ", "Адреса: Поштомат \"ПриватБанк\" №1137: вул. Інститутська, 17/5"]
+            },
+            "valid" : true
+        }
+    }
+}

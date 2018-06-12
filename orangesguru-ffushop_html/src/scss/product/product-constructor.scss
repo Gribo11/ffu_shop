@@ -1,0 +1,41 @@
+.fs-product-constructor {
+    
+    .fs-product-gallery {
+        
+        @media ( max-width : $breakpoint-small-max ) {
+
+            min-height: 500px;
+            height: calc(100vh - 100px);
+        
+        
+            .uk-slideshow-items > li img {
+
+                max-height: 400px;
+            }
+        }
+    }
+    
+    
+    .fs-product-sizes {
+        
+        .uk-subnav-pill > * {
+            
+            padding-left: 3px;
+            margin-bottom: 5px;
+        }
+    }
+    
+    
+    .fs-user-input {
+        
+        .uk-form-horizontal {
+            
+            @media (min-width : $breakpoint-medium ) {
+                
+                .uk-form-label { width: 70px; }
+
+                .uk-form-controls { margin-left: 80px; }
+            }
+        }
+    }
+}

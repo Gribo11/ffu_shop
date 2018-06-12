@@ -1,0 +1,30 @@
+// transitions
+
+.login-modal-enter-to,
+.login-modal-leave {
+    
+    opacity: 1;
+    transform: scale(1);
+}
+
+.login-modal-enter {
+    
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.login-modal-leave-to {
+    
+    opacity: 0;
+    transform: scale(1.33);
+}
+
+.login-modal-leave-active,
+.login-modal-leave-ative {
+    
+    position: absolute;
+    width: 100%;
+    background-color: $global-background;
+    transform-origin: center;
+    transition: opacity 300ms ease-out, transform 1000ms ease-out;
+}

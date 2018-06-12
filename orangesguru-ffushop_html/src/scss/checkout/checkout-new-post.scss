@@ -1,0 +1,40 @@
+#npw-map-wrapper { z-index: 100 !important; }
+
+@media ( max-width : 900px ) {
+    
+    #npw-map-wrapper {
+
+        max-width: 95%;
+        left: 50% !important;
+        transform: translateX(-50%);
+    }
+}
+
+@media ( max-width : 700px ) {
+    
+    #npw-map-wrapper.npw-display-block {
+        
+        display: flex !important;
+        flex-direction: column;
+        height: auto;
+        
+        #npw-map {
+            
+            min-height: 350px;
+            width: 100%;
+        }
+        
+        #npw-map-sidebar {
+            
+            order: 2;
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            
+            #npw-map-sidebar-ul {
+                max-height: 225px;
+                overflow-y: auto;
+            }
+        }
+    }
+}

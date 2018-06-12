@@ -1,0 +1,124 @@
+.fs-footer {
+    
+    color: #fff;
+    background: url('../img/footer-bg.jpg') top left / cover no-repeat;
+    
+    // icons
+    a > svg {
+        
+        max-width: 1rem;
+        max-height: 1rem;
+        
+        > * { fill: $global-primary-background !important; }
+    } 
+    
+    
+    
+    
+    /*
+     * Titles
+     */
+    
+    .fs-footer-title {
+        
+        color: #fff;
+        text-transform: uppercase;
+    }
+    
+    
+    
+    /*
+     * Titles
+     */
+    
+    .uk-nav {
+        
+        a { 
+            
+            color: #fff;
+        
+            &:hover, &:focus {
+                
+                color: lighten( $global-primary-background, 25% );
+            }
+        }
+    }
+    
+    
+    
+    /*
+     * Subscribe form
+     */
+    
+    .fs-footer-subscribe-form {
+        
+        .uk-input {
+            
+            color: #fff;
+            background: transparent;
+            
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 2px solid $global-primary-background;
+            
+            &::placeholder { color: #fff; }
+        }
+        
+        .uk-button {
+            
+            padding: 0 $button-small-padding-horizontal;
+            background: transparent;
+            color: $global-primary-background;
+        }
+    }
+    
+    
+    
+    /*
+     * Payments
+     */
+    
+    .fs-payment-systems {
+        
+        margin-left: -$grid-gutter-horizontal;
+        
+        img { margin-left: $grid-gutter-horizontal; }
+    }
+    
+    
+    
+    /*
+     * Socials list
+     */
+    
+    .fs-footer-socials {
+                
+        li > a { 
+            
+            border: 2px solid $global-primary-background;
+            color: $global-primary-background;
+        
+            width: 1.7em;
+            height: 1.7em;
+            line-height: calc(1.7em - 4);
+            vertical-align: middle;
+            text-align: center;
+            
+            transform-origin: center;
+            
+            &:hover, &:focus {
+                
+                border-color: lighten( $global-primary-background, 25% );
+                color: lighten( $global-primary-background, 25% );
+                
+                transform: scale(1.1);
+            }
+        }
+        
+        @media ( max-width : $breakpoint-medium-max ) {
+            
+            justify-content: center;
+        }
+    }
+}

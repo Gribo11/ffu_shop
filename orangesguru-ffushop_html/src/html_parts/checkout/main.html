@@ -1,0 +1,258 @@
+<main class="uk-section uk-section-xsmall">
+    <div class="uk-container">
+        <h1 class="uk-h2">Ваш кошик</h1>
+        <div id="fsCheckout">
+           
+            <!-- checkout nav start -->
+            <div class="fs-chechout-nav uk-grid-collapse uk-child-width-1-4" uk-grid>
+                <div :class="navClass(0)" @click="setPage(0)">
+                    <span class="fs-cart-checkout">
+                        <svg><use xlink:href="#ffu-icon-shopping-bag"/></svg>
+                        <span id="fsCartItems" class="fs-cart-items">{{cartTotal.quantity}}</span>
+                    </span>
+                    <span class="uk-visible@m">Товари у кошику</span>
+                </div>
+                <div :class="navClass(1)" @click="setPage(1)">
+                    <svg><use xlink:href="#ffu-icon-delivery-truck"/></svg>
+                    <span class="uk-visible@m">Спосіб доставки</span>
+                </div>
+                <div :class="navClass(2)" @click="setPage(2)">
+                    <svg><use xlink:href="#ffu-icon-credit-card"/></svg>
+                    <span class="uk-visible@m">Спосіб оплати</span>
+                </div>
+                <div :class="navClass(3)" @click="setPage(3)">
+                    <svg><use xlink:href="#ffu-icon-circle"/></svg>
+                    <span class="uk-visible@m">Підтвердження</span>
+                </div>
+            </div>
+            <!-- checkout nav end -->
+            
+            <transition-group class="fs-transition-holder" tag="div"
+                @before-enter="transBeforeEnter"
+                @enter="transEnter"
+                @leave="transLeave">
+            <!-- products list start -->
+            <div class="fs-checkout-products-list uk-card uk-card-body" :key="0" v-if="page == 0">
+                           
+                <div class="uk-gird-collapse" uk-grid v-for="(product, i) in products" :key="i">
+                    <div class="uk-width-1-2@s uk-width-1-6@l">
+                        <div class="fs-list-column">
+                            <div class="fs-grid-title">Фото товару</div>
+                            <div class="fs-product-image">
+                                <a href="#" class="uk-icon" @click.prevent="removeProduct(i)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+                                        <path fill="none" stroke="#000" stroke-width="1.06" d="M16,16 L4,4"></path> <path fill="none" stroke="#000" stroke-width="1.06" d="M16,4 L4,16"></path>
+                                    </svg>
+                                </a>
+                                <img :src="product.options.image ? product.options.image : 'img/products/no-image.jpg'" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-2@s uk-width-expand@l">
+                        <div class="fs-list-column">
+                            <div class="fs-grid-title">Назва, характеристики</div>
+                            <div class="fs-product-desc">
+                                <div>
+                                    <a :href="product.options.url || '#'" target="_blank" class="uk-link-reset">{{ product.name }}
+                                        <span v-if="product.options.discount"
+                                              class="uk-badge">{{ product.options.discount }}%</span>
+                                    </a>
+                                </div>
+                                <div class="uk-margin-small-top">
+                                    <small v-if="product.options.surname">Надпис: {{product.options.surname.toUpperCase()}}</small><br>
+                                    <small v-if="product.options.number">Номер: {{product.options.number}}</small><br>
+                                    <small>
+                                        <span v-if="product.options.color_value">Колір: 
+                                            <span class="fs-product-color">
+                                                <span :style="'background:' + product.options.color_value"></span>
+                                                <span :style="'background:' + product.options.color_value_2"></span>
+                                            </span>
+                                        </span>
+                                        <span v-if="product.options.size">Розмір: {{ product.options.size }}</span>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="uk-width-1-2@s uk-width-1-4@m uk-width-small@l">
+                        <div class="fs-list-column">
+                            <div class="fs-grid-title">Артикул</div>
+                            <div>
+                                {{ product.options.sku }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-2@s uk-width-1-4@m uk-width-auto@l">
+                        <div class="fs-list-column">
+                            <div class="fs-grid-title">Ціна</div>
+                            <div>
+                                 <div v-if="product.options.discount"
+                                      class="fs-product-price">
+                                    <s>{{ product.price }}<sup>00</sup> грн</s>
+                                 </div>
+                                 <div class="fs-product-price">{{ product.discountPrice }}<sup>00</sup> грн</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-2@s uk-width-1-4@m uk-width-1-6@l">
+                        <div class="fs-list-column">
+                            <div class="fs-grid-title">Кількість</div>
+                            <div>
+                                <quantity-counter :count="product.qty" :row-id="i" @change="quantityChange" :active="active"></quantity-counter>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-2@s uk-width-1-4@m uk-width-1-6@l">
+                        <div class="fs-list-column">
+                            <div class="fs-grid-title">Сума до сплати</div>
+                            <div>
+                                <div class="fs-product-price">
+                                    <div class="fs-product-price-text">
+                                        {{ product.discountPrice * product.qty }}<sup>00</sup> грн
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            <!-- products list end -->
+            
+            <!-- delivery start -->
+            <div class="fs-checkout-options fs-hide-danger uk-card uk-card-body" :key="1" v-if="page == 1">
+                <h5 v-if="! user.registered">Заповніть, будь ласка, персональні дані або <a href="#fsLoginModal" uk-toggle>увiйдить в акаунт</a></h5>
+                <h5 v-if="user.registered">Вашi персональні дані</h5>
+                <user-info-checkout></user-info-checkout>
+                <h5>Оберіть спосіб доставки</h5>
+                <ul class="fs-checkout-choose" v-if="delivery.providers">
+                    <li v-for="(provider, i) in delivery.providers"
+                        :key="i"
+                        :class="{'uk-active' : i == delivery.active }"                        
+                        @click="setDeliveryProvider(i)">
+                        <div uk-grid>
+                            <div class="uk-width-1-3@m">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12">
+                                    <rect x="1" y="1" width="10" height="10"></rect>
+                                </svg>
+                                {{ provider.title }}
+                            </div>
+                            <div class="uk-width-expand@m fs-choose-mobile">
+                                <component :is="provider.component" :is-active="i == delivery.active"></component>
+                            </div>
+                            <div class="uk-width-small@m">
+                                <div class="fs-product-price">
+                                    <div class="fs-product-price-text">
+                                        {{ provider.cost }}<sup>00</sup> грн
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>  
+                </ul>                  
+            </div>
+            <!-- delivery end -->
+            
+            <!-- payment start -->
+            <div class="fs-checkout-options uk-card uk-card-body" :key="2" v-if="page == 2">
+                <h5>Оберіть спосіб оплати</h5>                              
+                <ul class="fs-checkout-choose">
+                    <li v-for="(provider, i) in payment.providers"
+                        :key="i"
+                        :class="{'uk-active' : i == payment.active }"
+                        @click="setPaymentProvider(i)">
+                        <div uk-grid>
+                            <div class="uk-width-1-3@m">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12">
+                                    <rect x="1" y="1" width="10" height="10"></rect>
+                                </svg>
+                                {{provider.title}}
+                            </div>
+                            <div class="uk-width-expand@m"></div>
+                            <div class="uk-width-small@m">
+                                <div class="fs-product-price">
+                                    <div class="fs-product-price-text">
+                                        {{provider.cost}}<sup>00</sup> грн
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- payment end -->
+            
+            <!-- confirm start -->
+            <div class="fs-checkout-options uk-card uk-card-body" :key="3" v-if="page == 3">
+                <div class="uk-child-width-1-2@m" uk-grid>
+                    <div>
+                        <h5>Ваше замовлення</h5>
+                        <table class="uk-table">
+                            <tbody>
+                                <tr v-for="(product, rowId) in products"
+                                    :key="rowId">
+                                    <td>{{product.name}}</td>
+                                    <td>{{product.qty}}</td>
+                                    <td><strong class="fs-product-price">{{product.discountPrice * product.qty}}<sup>00</sup> грн</strong></td>
+                                </tr>                                
+                            </tbody>
+                        </table>
+                        <table class="uk-table">
+                            <tbody>
+                                <tr>
+                                    <td>{{delivery.providers[delivery.active].title}}</td>
+                                    <td><strong class="fs-product-price">{{delivery.providers[delivery.active].cost}}<sup>00</sup> грн</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>{{payment.providers[payment.active].title}}</td>
+                                    <td><strong class="fs-product-price">{{payment.providers[payment.active].cost}}<sup>00</sup> грн</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <h5>Ваші дані</h5>
+                        <p>{{user.first_name + ' ' + user.last_name}}</p>
+                        <p>{{user.email}}</p>
+                        <p>{{user.phone}}</p>
+                        <h5>Iнформацiя про доставку</h5>
+                        <p v-for="detail in deliveryDetails">{{detail}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- confirm end -->
+            </transition-group>
+            
+            <!-- checkout footer start -->
+            <div class="fs-checkout-footer uk-grid-collapse" uk-grid>
+                <div class="uk-width-expand@s uk-text-center uk-text-left@s" v-if="page != 3">
+                    <button class="fs-button-arrow" @click="setPage(page+1, true)" v-if="page == 0" :disabled="!active">
+                        <span>Обрати спосіб доставки</span>
+                    </button>
+                    <button class="fs-button-arrow" @click="validateDelivery()" v-if="page == 1" :disabled="!active">
+                        <span >Обрати спосіб оплати</span>
+                    </button>
+                    <button class="fs-button-arrow" @click="validatePayment()" v-if="page == 2" :disabled="!active">
+                        <span>Підтвердждення замовлення</span>
+                    </button>
+                </div>
+                <div class="uk-width-2-3 uk-width-1-3@s uk-text-center uk-text-right@m" v-if="page != 3">
+                    <span class="fs-footer-text">Усього товарів <span class="uk-margin-left">{{ cartTotal.quantity }}</span></span>
+                </div>
+                <div class="uk-width-1-3 uk-width-auto@s fs-checkout-total uk-text-center" v-if="page != 3">
+                    <div class="fs-product-price fs-footer-text">{{ cartTotal.summ }}<sup>00</sup> грн</div>
+                </div>
+                <div class="uk-width-1-2@s fs-checkout-total" v-if="page == 3">
+                    <span class="uk-h4 fs-footer-text">До сплати
+                        <span class="fs-product-price uk-float-right">{{ cartTotal.summ }}<sup>00</sup> грн</span>
+                    </span>
+                </div>
+                <div class="uk-width-1-2@s uk-text-right" v-if="page == 3">
+                    <button class="fs-button-arrow" @click="confirmOrder"  :disabled="!active">
+                        Підтвердити
+                    </button>
+                </div>
+            </div>
+            <!-- checkout footer end -->
+        </div>
+    </div>
+</main>

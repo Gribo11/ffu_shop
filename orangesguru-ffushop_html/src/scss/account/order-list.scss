@@ -1,0 +1,232 @@
+.fs-orders-list {
+    
+    margin-top: $margin-small-margin;
+    
+    > li + li { margin-top: 0 !important; }
+    
+    
+    
+    /*
+     * Title
+     */
+    
+    .uk-accordion-title {
+        
+        font-weight: 500;
+        font-size: 1rem;
+        border-left: 1px solid transparent;
+        border-right: 10px solid transparent;
+        
+        transition: background 150ms ease-out;
+        padding: $margin-small-margin;
+        padding-left: $margin-small-margin + 10;
+        
+        @media ( min-width : $breakpoint-large ) {
+            
+            padding: $margin-small-margin $card-body-padding-horizontal-l;
+        }
+        
+        .uk-grid {
+            
+            align-items: center;
+            
+            /*@media ( min-width : $breakpoint-medium ) and ( max-width : $breakpoint-medium-max ) {
+                
+                > div:nth-child(2) { order: 9; }
+                > div:nth-child(3) { order: 10; }
+            }*/
+        }
+        
+        &:hover { 
+            
+            color: $accordion-title-color;
+            background-color: lighten($global-muted-background, 3%);
+        }
+    }
+    
+    
+    
+    /*
+     * Open indicator
+     */
+    
+    .fs-indicator {
+        
+        display: flex;
+        
+        > span:first-child {
+            
+            background: $global-primary-background;
+            
+            align-self: center;
+            text-align: center;
+            line-height: 20px;
+            vertical-align: middle;
+            
+            display: inline-block;
+            margin-right: $margin-small-margin;
+            border-radius: 50%;
+            padding: 2px 0 2px 4px;
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            
+            transition: transform 150ms ease-out;
+            
+            @media ( min-width : $breakpoint-small ) {
+                
+                margin-right: $column-gutter;
+            }
+        }
+    }
+    
+    // open state
+    .uk-open {
+        
+        .uk-accordion-title { 
+            
+            background-color: $global-muted-background;
+            border-left-color: darken($global-muted-background, 15%);
+            border-right-color: $global-primary-background;
+        }
+        .fs-indicator > span:first-child { transform: rotate(90deg); }
+    }
+    
+    
+    
+    /*
+     * Content
+     */
+    
+    .uk-accordion-content {
+        
+        margin-top: 0;
+        font-weight: 500;
+        color: $accordion-title-color;
+        background-color: $global-muted-background;
+        padding: $card-body-padding-vertical $margin-small-margin $card-body-padding-vertical $margin-small-margin + 10;
+        border-right: 10px solid $global-primary-background;
+        border-left: 1px solid darken($global-muted-background, 15%);
+        
+        @media ( min-width : $breakpoint-large ) {
+            
+            padding: $card-body-padding-vertical $card-body-padding-horizontal-l - 10 $card-body-padding-vertical $card-body-padding-horizontal-l;
+        }
+        
+        > div { min-width: 450px; }
+        
+        .fs-preview {
+            
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            width: 48px;
+            min-width: 48px;
+            height: 48px;
+            margin-right: $margin-small-margin;
+            background: #fff center / contain no-repeat;
+            border: 2px solid darken($global-muted-background, 15%);
+            
+            @media ( min-width : $breakpoint-large ) {
+                    
+                margin-right: $column-gutter;
+            } 
+            
+            .uk-badge {
+                
+                position: absolute;
+                right: -10px;
+                top: -10px;
+            }
+        }
+        
+        .uk-grid { 
+            
+            align-items: center;
+            max-width: 710px;
+            
+            + .uk-grid { margin-top: $margin-small-margin; }
+            
+            .info { 
+                
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                
+                .fs-sku {
+                    
+                    margin-bottom: 10px;
+                }
+                
+                @media ( min-width : $breakpoint-medium ) {
+                    
+                    padding-left: 58px;
+                }
+                
+                @media /*( min-width : 450px ) and*/ ( max-width : 844px ) {
+                    
+                    transform: translateY(.65rem);
+                    
+                    .fs-preview { 
+                        
+                        margin-left: 0;
+                        order: -1
+                    }
+                    
+                    .fs-sku { 
+                        
+                        font-size: .75rem;
+                        width: 100%;
+                        order: 10;
+                    }
+                    
+                    .fs-qty { 
+                        
+                        flex-grow: 1;
+                        text-align: right;
+                    }
+                }
+                
+                @media ( min-width : 845px ) {
+                    
+                    .fs-sku {
+                        
+                        width: 185px;
+                        margin-right: $margin-small-margin;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+            
+            @media ( max-width : 844px ) {
+                
+                + .uk-grid { margin-top: $margin-medium-margin; }
+            }
+            
+            @media ( max-width : 449px ) { 
+                                
+                //&.fs-order-product > :first-child,
+                &.fs-order-delivery > :first-child { min-width: 100%; }
+            }
+            
+            
+            // status text image
+            
+            
+        }
+        
+        
+        // delivery separator
+        hr { 
+            
+            border-top: 1px dashed darken($global-muted-background, 15%);
+            
+            @media ( min-width: $breakpoint-medium ) {
+                
+                margin-left: 58px;
+            }
+        }
+    }
+}

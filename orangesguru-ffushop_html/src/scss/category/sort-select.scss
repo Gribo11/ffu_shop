@@ -1,0 +1,29 @@
+.fs-sort-select-wrap { 
+    
+    text-align: right;
+    
+    > span { 
+        
+        display: inline-block;
+        margin-top: $margin-small-margin / 2;
+    }
+
+    .fs-sort-select {
+        
+        width: 280px;
+        max-width: 100%;
+        text-align: left;
+        
+        > .selected { 
+
+            display: block;
+            padding: $form-padding-vertical $form-padding-horizontal;
+            background-color: $global-muted-background;
+            
+            + .uk-dropdown {
+                
+                padding: $form-padding-vertical $form-padding-horizontal;
+            }
+        }
+    }
+}

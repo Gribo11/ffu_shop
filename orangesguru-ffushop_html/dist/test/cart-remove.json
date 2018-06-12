@@ -1,0 +1,20 @@
+{
+     "1b38a4b476efg37e255792e9f41df387":  {
+         "rowId":  "1b38a4b476efg37e255792e9f41df387",
+         "id":  5,
+         "name":  "Тест видалення товару",
+         "qty":  "5",
+         "price":  1730,
+         "options":  {
+             "product_id":  1,
+             "sku":  "test",
+             "size":  null,
+             "color_name":  null,
+             "color_value":  null,
+             "color_value_2":  null,
+             "image":  null 
+        },
+         "tax":  0,
+         "subtotal":  8650 
+    }
+}

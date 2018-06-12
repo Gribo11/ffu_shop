@@ -1,0 +1,21 @@
+.fs-home-popular-section {
+    
+    @media ( min-width: $breakpoint-large ) {
+        
+        background-image: url('../img/pattern-blue.png'), url('../img/home/ball.png');
+        background-position: 50px 0, calc(100% + 50px) 100%;
+        background-repeat: repeat-y, no-repeat;
+    }
+    
+    @media ( max-width : $breakpoint-medium-max ) {
+        
+        background-image: url('../img/pattern-blue.png');
+        background-position: -20px 0;
+        background-repeat: repeat-y;
+        
+        .fs-home-popular-title {
+            
+            padding-left: 50px;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "ffu_shop",
+  "version": "1.0.0",
+  "description": "FFU shop UIkit3 + minimum of Vue.js",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "uikit": "^3.0.0-beta.35",
+    "vue": "^2.5.13",
+    "vue-select": "^2.4.0",
+    "vuex": "^3.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://illjah@bitbucket.org/illjah/ffu_shop.git"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-file-include": "^1.1.0",
+    "gulp-html-prettify": "0.0.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-noop": "^1.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-server-livereload": "^1.9.2",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-svg-sprite": "^1.3.7",
+    "gulp-uglify": "^3.0.0",
+    "gulp-watch": "^4.3.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development gulp",
+    "prod": "set NODE_ENV='production' gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ILLJAH42 <illjah@bk.ru>",
+  "license": "MIT"
+}

@@ -1,0 +1,117 @@
+ [
+    {
+        "id": "123456789",
+        "date": "12.10.2017",
+        "desc": "1 товар на суму:",
+        "status": "primary",
+        "statusMessage": "Очікується",
+        "products" : [
+            {
+                "sku" : "N10JS.302.PT",
+                "image" : "img/products/1.png",
+                "qty" : 1,
+                "price" : 740,
+                "discount" : null
+            },
+            {
+                "sku" : "N10JS.302.PT",
+                "image" : "img/products/2.jpg",
+                "qty" : 2,
+                "price" : 740,
+                "discount" : null
+            }
+        ],
+        "delivery" : {
+            "details" : "Нова пошта, відділення 45 м. Київ",
+            "cost" : 34
+        }
+    },
+    {
+        "id": "123456789",
+        "date": "12.10.2017",
+        "desc": "3 товари на суму:",
+        "status": "success",
+        "statusMessage": "Виконано",
+        "products" : [
+            {
+                "sku" : "N10JS.302.PT",
+                "image" : "img/products/2.jpg",
+                "qty" : 2,
+                "price" : 740,
+                "discount" : -5
+            },
+            {
+                "sku" : "N10JS.302.PT",
+                "image" : "img/products/3.jpg",
+                "qty" : 3,
+                "price" : 740,
+                "discount" : null
+            }
+        ],
+        "delivery" : {
+            "details" : "м. Київ, вул. Назва д. 17а кв. 145",
+            "cost" : 75
+        }
+    },
+    {
+        "id": "123456789",
+        "date": "12.10.2017",
+        "desc": "3 товари на суму:",
+        "status": "muted",
+        "statusMessage": "Закінчився строк резерву",
+        "products" : [
+            {
+                "sku" : "N10JS.302.PT123",
+                "image" : "img/products/1.png",
+                "qty" : 1,
+                "price" : 740,
+                "discount" : null
+            },
+            {
+                "sku" : "N133_2",
+                "image" : "img/products/2.jpg",
+                "qty" : 2,
+                "price" : 740,
+                "discount" : -30
+            },
+            {
+                "sku" : "N10JS.302.PT2342",
+                "image" : "img/products/3.jpg",
+                "qty" : 2,
+                "price" : 740,
+                "discount" : null
+            }
+        ],
+        "delivery" : {
+            "details" : "м. Київ, вул. Назва д. 17а кв. 145",
+            "cost" : 75
+        }
+    },
+    {
+        "id": "123456789",
+        "date": "12.10.2017",
+        "desc": "1 товар на суму:",
+        "status": "danger",
+        "statusMessage": "Скасовано",
+        "products" : [
+            {
+                "sku" : "N10JS.302.PT",
+                "image" : "img/products/2.jpg",
+                "qty" : 2,
+                "price" : 740,
+                "discount" : -10
+            },
+            {
+                "sku" : "N10JS.302.PT",
+                "image" : "img/products/3.jpg",
+                "qty" : 3,
+                "price" : 740,
+                "discount" : null
+            }
+        ],
+        "delivery" : {
+            "details" : "Самовивiз",
+            "cost" : 0
+        }
+    }
+]

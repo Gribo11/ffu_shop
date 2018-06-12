@@ -1,0 +1,40 @@
+{
+    "4d947af92329c641fc2f1644d8dc6043": {
+        "rowId": "4d947af92329c641fc2f1644d8dc6043",
+        "id": 1,
+        "name": "Гетры Calcio 24",
+        "qty": 2,
+        "price": 370,
+        "options": {
+            "product_id": 1,
+            "discount": null,
+            "sku": "FFU106011_17",
+            "size": "XS",
+            "color_name": "Желтый",
+            "color_value": "#efd51f",
+            "color_value_2": null,
+            "image": "/files/500x500.png"
+        },
+        "tax": 0,
+        "subtotal": 740
+    },
+    "d213b4f4cf8fce6131b217f8e449ca98": {
+        "rowId": "d213b4f4cf8fce6131b217f8e449ca98",
+        "id": 2,
+        "name": "Гетры Calcio 24",
+        "qty": 2,
+        "price": 375,
+        "options": {
+            "product_id": 1,
+            "discount": -30,
+            "sku": "FFU106011_18",
+            "size": "M",
+            "color_name": "Синий",
+            "color_value": "#276eba",
+            "color_value_2": null,
+            "image": "/files/500x500.png"
+        },
+        "tax": 0,
+        "subtotal": 750
+    }
+}

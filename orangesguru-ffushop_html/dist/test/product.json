@@ -1,0 +1,56 @@
+{
+    "FFU106011_17": {
+        "sku_id":1,
+        "price":370,
+        "discount":-30,
+        "in_stock":1,
+        "stock_level":5,
+        "sku_image":"img/products/single/1.jpg",
+        "color": {
+            "id":1,
+            "name":"\u0416\u0435\u043b\u0442\u044b\u0439",
+            "value":"#efd51f",
+            "value_2":null
+        },
+        "size": {
+            "id":"XS",
+            "value":"XS"
+        }
+    },
+    "FFU106011_18":{
+        "sku_id":2,
+        "price":375,
+        "discount":null,
+        "in_stock":1,
+        "stock_level":60,
+        "sku_image":"img/products/single/2.jpg",
+        "color": {
+            "id":2,
+            "name":"\u0421\u0438\u043d\u0438\u0439",
+            "value":"#276eba",
+            "value_2":null
+        },
+        "size": {
+            "id":"M",
+            "value":"M"
+        }
+    },
+    "FFU106011_19":{
+        "sku_id":2,
+        "price":380,
+        "discount":null,
+        "in_stock":1,
+        "stock_level":60,
+        "sku_image":"img/products/single/3.jpg",
+        "color": {
+            "id":3,
+            "name":"\u0421\u0438\u043d\u0438\u0439",
+            "value":"#ba2765",
+            "value_2":null
+        },
+        "size": {
+            "id":"L",
+            "value":"L"
+        }
+    }
+}

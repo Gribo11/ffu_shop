@@ -1,0 +1,122 @@
+.fs-checkout-options {
+            
+    color: $global-emphasis-color;
+    border: 1px solid $global-muted-background;
+    padding-top: $padding-small-padding;
+    padding-bottom: $padding-small-padding;
+    
+    
+    
+    /*
+     * Choose list
+     */
+    
+    .fs-checkout-choose {
+
+        line-height: $global-control-height;
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+
+        > li {
+
+            padding: 5px 10px;            
+
+            + li { border-top: 1px solid $description-list-divider-term-border; }
+
+            > .uk-grid {
+
+                :first-child {
+
+                    svg { 
+
+                        margin-right: $margin-small-margin;
+
+                        rect { 
+
+                            fill: transparent; 
+                            stroke-width: 2;
+                            stroke: $global-primary-background;
+                        }
+                    }
+                }
+            }
+
+            .fs-product-price {
+
+                text-align: right;
+                color: $global-muted-color;
+                filter: grayscale(1);
+            }
+
+            @media ( max-width : $breakpoint-small-max ) {
+                
+                .fs-choose-mobile { display: none; }
+                
+                .uk-grid-margin { margin-top: $margin-small-margin; }
+            }
+
+            /*
+             * Hover state
+             */
+
+            &:not(.uk-active):hover {
+                
+                background-color: rgba($global-muted-background,.5);
+                transition: background-color 150ms ease-in;
+            }
+
+
+
+            /*
+             * Active state
+             */
+
+            &.uk-active { 
+
+                > .uk-grid :first-child svg rect { 
+
+                   fill: $global-primary-background;
+                }
+
+                .fs-product-price {
+
+                    color: $global-emphasis-color;
+                    filter: grayscale(0);
+                }
+                
+                .fs-choose-mobile { display: block; }
+            }
+        }
+    }
+    
+    
+    
+    /*
+     * Table
+     */
+    
+    .uk-table {
+        
+        tr > :first-child { padding-left: 0;}
+        
+        td { 
+            
+            padding: $table-cell-padding-vertical / 3 $table-cell-padding-horizontal;
+            
+            &:last-child { width: 120px; }
+        }
+    }
+    
+    
+    
+    /*
+     * Info
+     */ 
+    
+    p { 
+        
+        margin-top: 0; 
+        margin-bottom: $global-margin / 2;
+    }
+}

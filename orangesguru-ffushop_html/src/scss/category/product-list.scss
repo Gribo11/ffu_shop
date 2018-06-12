@@ -1,0 +1,28 @@
+$fs-category-product-card-image-height : 150px !default;
+
+.fs-category-view {
+    
+    .fs-product-card {
+        
+        @media ( min-width : $breakpoint-large ) {
+            
+            padding-left: $card-body-padding-horizontal;
+            padding-right: $card-body-padding-horizontal;
+        }
+        
+        .fs-product-card-image {
+            
+            height: $fs-category-product-card-image-height;
+        }
+        
+        .fs-price-discount {
+            
+            top: $fs-category-product-card-image-height + 2 * $card-body-padding-vertical;
+        }
+        
+        .uk-card-title {
+            
+            margin-top: $base-heading-margin-top / 2;
+        }
+    }
+}

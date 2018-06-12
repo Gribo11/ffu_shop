@@ -1,0 +1,34 @@
+.no-js #fsPreloader{
+        
+    .fs-js { display: none; }
+}
+
+.no-js[lang="en"] #fsPreloader{
+    
+    .fs-nojs-ua { display: none; }
+    
+    .fs-nojs-en { display: block; }
+}
+
+.no-js[lang="uk"] #fsPreloader{
+    
+    .fs-nojs-ua { display: block; }
+    
+    .fs-nojs-en { display: none; }
+}
+
+#fsPreloader {
+    
+    background: #fff;
+    
+    position: fixed;    
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    
+    transition: opacity 500ms cubic-bezier(.8,.07,.63,.9);
+    
+    [class*="fs-nojs-"] { display: none !important; }
+}

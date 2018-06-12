@@ -1,0 +1,16 @@
+.fs-category-view {
+    
+    .uk-subnav {
+        
+        > li {
+            
+            > a { font-weight: bold; }
+            
+            &.uk-active > a {
+                
+                color: $global-primary-background;
+                text-decoration: underline;
+            }
+        }
+    }
+}

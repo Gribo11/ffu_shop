@@ -1,0 +1,321 @@
+<main id="fsProductConstructor" class="uk-section uk-section-small uk-padding-remove-top fs-product-single fs-product-constructor" data-product-id="">
+    <div class="uk-container">
+        <div class="uk-grid-collapse uk-child-width-1-2@m" uk-grid uk-height-match="target: > div > .uk-card">
+            <div>
+                <div class="uk-card uk-card-body fs-product-gallery">   
+                    <div class="uk-slideshow" uk-slideshow="ratio: false">
+                                               
+                        <!-- slideshow images start -->
+                        <ul class="uk-slideshow-items">
+                            <li><img 
+                                :src="product.options.image ? product.options.image : 'img/products/tshirt/petrova.jpg'"
+                                alt=""></li>
+                            <li><img src="img/products/tshirt/2.jpg" alt=""></li>
+                            <li><img src="img/products/tshirt/3.jpg" alt="" ></li>
+                        </ul>
+                        <!-- slideshow images end -->
+                        
+                        <!-- slideshow thumbs start -->
+                        <div class="fs-product-gallery-nav" uk-slider="finite:true;">
+                            <ul class="uk-child-width-1-4 uk-slider-items">
+                                <li uk-slideshow-item="0"><a href="#">
+                                    <img 
+                                        :src="product.options.image"
+                                        alt=""></a></li>
+                                <li uk-slideshow-item="1"><a href="#"><img src="img/products/tshirt/2.jpg" alt=""></a></li> 
+                                <li uk-slideshow-item="2"><a href="#"><img src="img/products/tshirt/3.jpg" alt=""></a></li>
+                            </ul>
+                        </div>
+                        <!-- slideshow thumbs end -->
+                        
+                    </div> 
+                   
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-body uk-section-muted">
+                   
+                    <h4 id="fsProductSingleName" class="uk-h2">Персоналізована футболка Збірної України</h4> <!-- name -->
+                    <p class="fs-product-sku">
+                        N10JS.302.PT
+                    </p> <!-- sku -->
+                    
+                    <!-- price start -->
+                    <div class="fs-product-price">
+                        <div class="fs-product-price-text">
+                            370<sup>00</sup> грн
+                        </div>
+                        
+                        <quantity-counter 
+                            :count="product.qty"
+                            @change="quantityChange">
+                        </quantity-counter>                        
+                    </div>
+                    <!-- price end -->
+                    
+                    <!-- add to cart start -->
+                    <p>
+                        <button class="uk-button fs-button fs-add-to-cart" @click="addToCart">Додати у кошик</button>
+                    </p>
+                    <!-- add to cart end -->
+                    
+                    <!-- description start -->
+                    <dl class="uk-description-list">
+                        <dt>Тип взуття:</dt>
+                        <dd>Сороконожки</dd>
+                        <dt>Категорія:</dt>
+                        <dd>Чоловіче взуття</dd>
+                        <dt>Матеріал:</dt>
+                        <dd>Шкіра / Текстиль / Гума</dd>
+                        <dt>Покриття:</dt>
+                        <dd>Футзал</dd>
+                    </dl>
+                    <!-- description end -->
+                    
+                    <!-- sizes start -->
+                    <div class="uk-flex uk-flex-middle fs-product-sizes">
+                        <strong class="uk-margin-right">Розмір:</strong>
+                        <ul class="uk-subnav uk-subnav-pill">
+                            <li :class="getSizeClass('XS')">
+                                <a href="" @click.prevent="setSize('XS')">XS</a>
+                            </li>
+                            <li class="uk-disabled">
+                                <a href="" @click.prevent>S</a>
+                            </li>
+                            <li :class="getSizeClass('M')">
+                                <a href="" @click.prevent="setSize('M')">M</a>
+                            </li>
+                            <li :class="getSizeClass('L')">
+                                <a href="" @click.prevent="setSize('L')">L</a>
+                            </li>
+                            <li :class="getSizeClass('XL')">
+                                <a href="" @click.prevent="setSize('XL')">XL</a>
+                            </li>
+                            <li :class="getSizeClass('XXL')">
+                                <a href="" @click.prevent="setSize('XXL')">XXL</a>
+                            </li>
+                            <li :class="getSizeClass('XXXL')">
+                                <a href="" @click.prevent="setSize('XXXL')">XXXL</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- sizes end -->
+                    
+                    <!-- colors start -->
+                    <div class="uk-flex uk-flex-middle">
+                        <strong class="uk-margin-right">Колір:</strong>
+                        <ul class="fs-product-colors">
+                            <li>
+                                <span style="background:#efd51f"></span>
+                                <span style="background:#efd51f"></span>
+                            </li>
+                            <li class="uk-position-relative">
+                                <span style="background:#276eba"></span>
+                                <span style="background:#276eba"></span>
+                                <a href="color2" class="uk-position-cover"></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- colors end -->
+                    
+                    <hr class="uk-margin-medium">
+                    
+                    <!-- user input start -->
+                    <div class="uk-grid-small fs-user-input" uk-grid>
+                        <div class="uk-width-auto uk-visible@s">
+                            <svg width="85" height="85"><use xlink:href="#ffu-icon-tshirt"></use></svg>
+                        </div>
+                        <div class="uk-width-expand">
+                            <form action="" class="uk-form-horizontal" uk-margin>
+                                <div>
+                                    <label for="" class="uk-form-label">Номер:</label>
+                                    <div class="uk-form-controls uk-position-relative">
+                                        <input 
+                                               v-model="product.options.number"
+                                               @input="controlInput('number')"
+                                               type="text" class="uk-input">
+                                        <span class="uk-form-icon uk-form-icon-flip">{{ leftnumber }}</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="" class="uk-form-label">Надпис:</label>
+                                    <div class="uk-form-controls uk-position-relative">
+                                        <input 
+                                               v-model="product.options.surname"
+                                               @input="controlInput('surname')"
+                                               type="text" class="uk-input">
+                                        <span class="uk-form-icon uk-form-icon-flip">{{ leftsurname }}</span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- user input end -->
+                    
+                </div>
+            </div>
+        </div>
+        <h1 class="uk-h2">Сороконожки NUMERO 10</h1>
+        <ul class="uk-subnav uk-subnav-pill" uk-switcher>
+            <li class="uk-active"><a href="">Опис товару</a></li>
+            <li><a href="">Відгуки (18)</a></li>
+        </ul>
+        <ul class="uk-switcher uk-margin">
+            <li>
+                <p>
+                    Наименование Бутсы Joma NUMERO-10 S 502 PM
+                </p>
+                <p>
+                    Описание модели:Футбольные бутсы Joma Humero 10 предназначены для игры на искусственном покрытии. Бутсы имеют 24 шипа что позволят максимально распределять нагрузку на стопу футболиста.Бутсы изготовлены из высокопрочных и одновременно легких синтетических материалов. Носок бутс имеет рефленый рисунок для лучшего контроля мяча.
+                </p>
+            </li>
+            <li>
+                Відгуки Відгуки Відгуки Відгуки Відгуки Відгуки Відгуки
+            </li>
+        </ul>
+    </div>
+</main>
+
+
+<script>
+    
+    jQuery(document).ready(function($){
+        
+        var productConsTrans = {
+            uk : {
+                inputError : {
+                    number : 'Допускаються тiьки цифри',
+                    surname : 'Допускаються тiьки латинскi букви'
+                }
+            },
+            en : {
+                inputError : {
+                    number : 'Only numbers allowed',
+                    surname : 'Only latin charachters allowed'
+                }
+            }
+        }
+                
+        var lang = $('html').attr('lang') == 'en' ? 'en' : 'uk';
+        
+        new Vue({
+            el : '#fsProductConstructor',
+            store : ffuShop.store,
+            data : function() {            
+                return {
+                    maxnumber : 2,
+                    maxsurname : 9,
+                    timeout : null,
+                    product : {
+                        id: 5,
+                        name: 'Персоналізована футболка Збірної України',
+                        qty: 1,                
+                        price: 370,
+                        options: {
+                            product_id : 5,
+                            sku: 'N10JS.302.PT',
+                            size: 'XS',
+                            color_name: 'желтый',
+                            color_value: '#efd51f',
+                            color_value_2: '#efd51f',
+                            image : 'img/products/tshirt/1.jpg',
+                            number : '',
+                            surname : ''
+                        }
+                    }
+                }
+            },
+            computed : {
+                leftnumber : function() {
+                    return this.maxnumber - this.product.options.number.length;
+                },
+                leftsurname : function() {
+                    return this.maxsurname - this.product.options.surname.length;
+                }
+            },
+            methods : {
+                quantityChange : function(old, q) {
+                    this.product.qty = q;
+                },
+                addToCart : function() {
+                    this.$store.dispatch('addProduct', this.product);
+                },
+                getSizeClass : function(size) {
+                    return ( size == this.product.options.size ? 'uk-active' : null )
+                },
+                setSize : function(size) {
+                    this.product.options.size = size;
+                },
+                controlInput : function(field) {
+                    
+                    // filter
+                    switch (field) {
+                        case 'number' :
+                            var re = /[^\d]/g;
+                            break;
+                        case 'surname' :
+                            var re = /[^a-zA-Z]/g;
+                            break;
+                    }
+                    
+                    if ( re.test( this.product.options[field] ) &&
+                         ! this.inputError ) {
+                        
+                        this.inputError = productConsTrans[lang].inputError[field];
+                        
+                        var notify = UIkit.notification({
+                            status : 'warning',
+                            message : this.inputError,
+                            timeout : 2000
+                        });
+                        
+                        var self = this;
+                        
+                        UIkit.util.on(notify.$el, 'close', function(e){
+                            self.inputError = '';
+                        });
+                    }
+                    
+                    this.product.options[field] = this.product.options[field].replace(re, '');
+                    
+                    // trim length
+                    if ( this['left' + field] <= 0 ) {
+                        this.product.options[field] = this.product.options[field].substr( 0, this[ 'max' + field ] );
+                    }
+                },
+                getImage : function() {
+                    
+                    var self = this,
+                        data = {
+                        number : this.product.options.number,
+                        surname : this.product.options.surname
+                    }
+                    
+                    clearTimeout( this.timeout );
+                    
+                    this.timeout = setTimeout(function(){
+                        $.ajax({
+                            url : ffuShop.routes.singleProduct.getCustomImage.url,
+                            method : ffuShop.routes.singleProduct.getCustomImage.req,
+                            data : data,
+                            dataType : 'text',
+                            success : function(img) {
+                                self.product.options.image = img;
+                            }
+                        })
+                    }, 500, data);
+                }
+            },
+            watch : {
+                
+                leftnumber : function() {
+                    this.getImage();
+                },
+                leftsurname : function() {
+                    this.getImage();
+                }
+            }
+        })
+    })
+    
+</script>

@@ -1,0 +1,92 @@
+<section class="uk-section uk-section-small uk-section-muted">
+    <div class="uk-container">        
+        <div class="fs-related-products" uk-slider>
+            
+            <!-- title -->
+            <h3 class="uk-h2 fs-related-products-title">
+                Разом з цим товаром також придбають:
+            </h3>
+            
+            <!-- slidenav start -->
+            <div class="fs-slidenav-container">
+                <a href="" class="fs-slidenav" data-uk-slider-item="previous"><span uk-icon="icon: chevron-left"></span></a>
+                <a href="" class="fs-slidenav" data-uk-slider-item="next"><span uk-icon="icon: chevron-right"></span></a>
+            </div>
+            <!-- slidenav end -->
+            
+            <!-- slider items start -->
+            <ul class="uk-slider-items uk-grid uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l uk-grid" uk-height-match="> li > .fs-product-card" itemscope itemtype="http://schema.org/ItemList">
+                <li>
+                    @@include('common/_product-small.html', {
+                        "image" : "2.jpg",
+                        "name" : "Кроссовки JAKARTA",
+                        "colors" : [
+                            ["#d30505", "#000"],
+                            ["#964b00", "#000"],
+                            ["#26334d", "#fff"],
+                            ["#000", "#fff"]
+                        ],
+                        "oldprice" : false
+                    })
+                </li>
+                <li>
+                    @@include('common/_product-small.html', {
+                        "image" : "1.png",
+                        "name" : "Гетры Calcio 24",
+                        "colors" : [
+                            ["#efd51f", "#efd51f"],
+                            ["#276eba", "#276eba"]
+                        ],
+                        "oldprice" : false
+                    })
+                </li>
+                <li>
+                    @@include('common/_product-small.html', {
+                        "image" : "3.jpg",
+                        "name" : "Сороконожки NUMERO 10",
+                        "colors" : [
+                            ["#000", "#fff"]
+                        ],
+                        "oldprice" : false
+                    })
+                </li>
+                <li>
+                    @@include('common/_product-small.html', {
+                        "image" : "2.jpg",
+                        "name" : "Кроссовки JAKARTA",
+                        "colors" : [
+                            ["#d30505", "#000"],
+                            ["#964b00", "#000"],
+                            ["#26334d", "#fff"],
+                            ["#000", "#fff"]
+                        ],
+                        "oldprice" : false
+                    })
+                </li>
+                <li>
+                    @@include('common/_product-small.html', {
+                        "image" : "1.png",
+                        "name" : "Гетры Calcio 24",
+                        "colors" : [
+                            ["#efd51f", "#efd51f"],
+                            ["#276eba", "#276eba"]
+                        ],
+                    "oldprice" : false
+                    })
+                </li>
+                <li>
+                    @@include('common/_product-small.html', {
+                        "image" : "3.jpg",
+                        "name" : "Сороконожки NUMERO 10",
+                        "colors" : [
+                            ["#000", "#fff"]
+                        ],
+                        "oldprice" : false
+                    })
+                </li>
+            </ul>
+            <!-- slider items end -->
+            
+        </div>
+    </div>
+</section>

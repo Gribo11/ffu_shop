@@ -1,0 +1,48 @@
+.fs-size-table,
+.fs-size-table-horisontal {
+    
+    border: 1px solid $table-row-active-background;
+    
+    tr {
+        
+        th, td { 
+            
+            vertical-align: middle;
+            text-align: center;
+            color: $global-emphasis-color;            
+        }
+        
+        th { text-transform: none; }
+    }
+    
+    tbody > tr > td,
+    tbody > tr > th {
+        
+        border: 1px solid $table-row-active-background;
+    }
+}
+
+.fs-size-table {
+
+    tr th, 
+    tr td { 
+            
+        @media ( min-width: $breakpoint-large ) { min-width: 100px; }
+    }
+    
+    thead th { 
+        
+        background-color: $table-row-active-background;
+        
+        &:first-child { background-color: $global-primary-background; }
+    }
+}
+
+.fs-size-table-horisontal {
+    
+    th { background-color: $global-primary-background; }
+    
+    tr:not(:first-child) th { border-top: 1px solid $global-primary-background }
+    
+    tr:not(:last-child) th { border-bottom: 1px solid $global-primary-background }
+}

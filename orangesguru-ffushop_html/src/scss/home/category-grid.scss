@@ -1,0 +1,76 @@
+.fs-category-grid {
+    
+    > *:not(:first-child) > .uk-card { border-left: 1px solid $global-muted-background; }
+    
+    
+    .uk-card {
+                
+        color: $card-default-color;
+        background-color: $card-default-background;
+        border-bottom: 1px solid $global-muted-background;
+            
+        padding: $global-gutter $global-gutter $global-gutter + 1.5 * $button-line-height $global-gutter ;
+        
+        transition: background 200ms ease-out;
+        
+        &:hover {
+            
+            background-color: $global-primary-background;
+            border-color: $card-default-background;
+            
+            svg * { fill: $card-default-title-color; }
+        }
+        
+        
+        
+        /*
+         * Icon
+         */
+        
+        svg {
+            
+            display: block;
+            margin-bottom: $margin-small-margin;
+            
+            max-width: 70px;
+            max-height: 70px;
+            
+            * { 
+                
+                transition: fill 200ms ease-out;
+                fill: $global-muted-color;
+            }
+        }
+        
+        
+        
+        /*
+         * Title
+         */
+        
+        .uk-card-title { 
+            
+            margin-top: 0.5 * $global-gutter;
+            line-height: 1;
+            max-width: 200px;
+        }
+        
+        
+        
+        /*
+         * Button
+         */
+        
+        &:hover, &:focus {
+            
+            .fs-button {            
+
+                color: $button-default-hover-color;
+                font-size: $button-font-size;
+                padding-left: $button-padding-horizontal;
+
+                &:after {  margin-left: $button-padding-horizontal; }
+            }
+        }
+    }
+}
